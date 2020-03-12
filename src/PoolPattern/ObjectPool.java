@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ObjectPool {
     private static ObjectPool poolInstance = null;
-    private Object lockObject;
+    private Object lockObject = new Object();
     private int size;
     private int instanceCount;
     private int maxInstances;

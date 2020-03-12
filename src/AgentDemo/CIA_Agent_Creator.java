@@ -3,7 +3,7 @@ package AgentDemo;
 import PoolPattern.ObjectCreation_IF;
 
 public class CIA_Agent_Creator implements ObjectCreation_IF {
-    private String[] footPrints = {"@", "#", "$", "*", ".", "?"};
+    private String[] footPrints = {"@", "#", "$", "*", ".", "?","@", "#", "$", "*", ".", "?"};
     private int index = 0;
 
     public Object create() {
