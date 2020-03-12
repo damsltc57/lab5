@@ -48,7 +48,7 @@ public class ObjectPool {
         return pooledObject;
     }
 
-    public void releaseObject(Object obj) {
+    public void release(Object obj) {
         if (obj == null) {
             throw new NullPointerException();
         }

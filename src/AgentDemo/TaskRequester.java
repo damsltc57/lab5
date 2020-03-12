@@ -1,15 +1,23 @@
 package AgentDemo;
 
-public class TaskRequester implements Runnable{
+import PoolPattern.ObjectPool;
+
+public class TaskRequester implements Runnable {
     private ObjectPool server;
 
-    public TaskRequester(ObjectPool p) {
-        this.server = p;
+
+    public TaskRequester(ObjectPool server) {
+        this.server = server;
     }
 
     @Override
     public void run() {
-        Agent_IF agent = (Agent_IF)server.waitForObject();
+        Agent_IF agent = null;
+        try {
+            agent = (Agent_IF) server.waitForObject();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         agent.startTask();
         try {
             Thread.sleep(2000);
@@ -19,5 +27,6 @@ public class TaskRequester implements Runnable{
         agent.stopTask();
         server.release(agent);
     }
+}
 
 
